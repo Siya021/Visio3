@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visio</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+     <nav>
+        <div class="nav">
+            <a href="#" class="logo">
+                <img loading="lazy" src="./Assets/Logo 1.svg">
+            </a>
+            <a href="#" class="logo-btn">
+                <img loading="lazy" src="./Assets/Frame.svg">
+            </a>
+        </div>
+     </nav>
+
+     <section class="banner">
+        <div class="container">
+            <div class="slides-outer"> 
+                <div class="blue-hero">
+                    <p>LOOK BEYOND THE ORDINARY</p>
+                </div>
+                <div class="slides">
+                    <img loading="lazy" src="./Assets/Mask-Group-231.jpg" class="active">
+                    <img loading="lazy" src="./Assets/1.png">
+                    <img loading="lazy" src="./Assets/2.png">
+                </div>
+                <img loading="lazy" src="./Assets/Frame (1).png" alt="next" class="arrow">
+                <img loading="lazy" src="./Assets/Radio.png" class="sirc">
+                <div class="back-banner"></div>
+            </div>
+        </div>
+     </section>
+
+     <section class="sentencet">
+        <div class="about-text">
+            <p class="paragraph">
+                Visio is an investment management firm initially founded by Patrice Moyal in 2003.
+                The nimble, highly focused and dynamic team manage assets listed
+                strategies for a diversified client base includes some of the world's largest and
+                most sophisticated investors.
+            </p>
+        </div>
+        <div class="about-image">
+            <img loading="lazy" src="./Assets/Screenshot 2024-01-15 124712 1.png">
+        </div>
+     </section>
+
+     <section class="information">
+        <div class="col">
+            <div class="box-1">
+                <img loading="lazy" src="assets/icon/visio__3___1_-removebg-preview.png" alt="">
+                <h3>THE VISIO</h3>
+                <h3>DIFFERENCE</h3>
+            </div>
+            <div class="sub-box">
+                <div class="sub-boxes">
+                    <p>HEDGE FUNDS</p>
+                    <img loading="lazy" src="assets/icon/visio__3___1_-removebg-preview.png" alt="">
+                </div>
+                <div class="sub-boxes">
+                    <p>UNIT TRUSTS</p>
+                    <img loading="lazy" src="assets/icon/visio__3___1_-removebg-preview.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="box-1">
+                <img loading="lazy" src="assets/icon/visio__3___1_-removebg-preview.png" alt="">
+                <h3>MEET THE</h3>
+                <h3>VISIO TEAM</h3>
+            </div>
+            <div class="sub-box">
+                <div class="sub-boxes">
+                    <p>SEGREGATED MANDATES</p>
+                    <img loading="lazy" src="assets/icon/visio__3___1_-removebg-preview.png" alt="">
+                </div>
+                <div class="sub-boxes">
+                    <p>AFRICA FUNDS</p>
+                    <img loading="lazy" src="assets/icon/visio__3___1_-removebg-preview.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="box-1">
+                <img loading="lazy" src="assets/icon/visio__3___1_-removebg-preview.png" alt="">
+                <h3>OUR FUNDS AND</h3>
+                <h3>INVESTMENTS</h3>
+            </div>
+            <div class="sub-box">
+                <div class="sub-boxes">
+                    <p>FUNDS PERFORMANCE</p>
+                    <img loading="lazy" src="assets/icon/visio__3___1_-removebg-preview.png" alt="">
+                </div>
+                <div class="sub-boxes">
+                    <p>RISK MAN</p>
+                    <img loading="lazy" src="assets/icon/visio__3___1_-removebg-preview.png" alt="">
+                </div>
+            </div>
+        </div>
+     </section>
+     <script>
+        $(document).ready(function () {
+            let currentSlide = 0;
+            const slides = $('.slides img');
+
+            function showSlide(index) {
+                slides.each(function (i, slide) {
+                    if (i === index) {
+                        $(slide).addClass('active');
+                    } else {
+                        $(slide).removeClass('active');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length; /
+                showSlide(currentSlide);
+            }
+
+            setInterval(nextSlide, 2000);
+        });
+    </script>
+
+</body>
+</html>
