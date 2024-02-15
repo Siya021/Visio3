@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-     <nav>
+    <nav>
         <div class="nav">
             <a href="#" class="logo">
                 <img loading="lazy" src="./Assets/Logo 1.svg">
@@ -17,10 +17,10 @@
                 <img loading="lazy" src="./Assets/Frame.svg">
             </a>
         </div>
-     </nav>
+    </nav>
 
-     <section class="banner">
-        <div class="container">
+    <section class="banner">
+        <div class="container-fluid">
             <div class="slides-outer"> 
                 <div class="blue-hero">
                     <p>LOOK BEYOND THE ORDINARY</p>
@@ -35,9 +35,9 @@
                 <div class="back-banner"></div>
             </div>
         </div>
-     </section>
+    </section>
 
-     <section class="sentencet">
+    <section class="sentencet">
         <div class="about-text">
             <p class="paragraph">
                 Visio is an investment management firm initially founded by Patrice Moyal in 2003.
@@ -49,9 +49,9 @@
         <div class="about-image">
             <img loading="lazy" src="./Assets/Screenshot 2024-01-15 124712 1.png">
         </div>
-     </section>
+    </section>
 
-     <section class="information">
+    <section class="information">
         <div class="col">
             <div class="box-1">
                 <img loading="lazy" src="assets/icon/visio__3___1_-removebg-preview.png" alt="">
@@ -103,8 +103,9 @@
                 </div>
             </div>
         </div>
-     </section>
-     <script>
+    </section>
+
+    <script>
         $(document).ready(function () {
             let currentSlide = 0;
             const slides = $('.slides img');
@@ -120,13 +121,12 @@
             }
 
             function nextSlide() {
-                currentSlide = (currentSlide + 1) % slides.length; /
+                currentSlide = (currentSlide + 1) % slides.length;
                 showSlide(currentSlide);
             }
 
             setInterval(nextSlide, 2000);
         });
     </script>
-
 </body>
 </html>
