@@ -880,6 +880,7 @@
     }
     .sub-box {
         grid-template-columns: 7rem 7rem;
+        font-size: 6px;
     }
 }
 @media screen and (max-width: 768px) {
