@@ -159,6 +159,12 @@
         top: 90%;
     }
 }
+@media screen and (max-width: 1192px){ 
+    .container{
+        width: 100%;
+        min-width: 1161;
+    }
+}
 @media screen and (max-width: 1144px){ 
     .container{
         width: 100%;
@@ -172,12 +178,6 @@
 @media screen and (max-width: 1122px){ 
     .container{
         width: 100%;
-    }
-    .info-section {
-        grid-template-columns: 19.8rem 19.8rem 19.8rem;
-    }
-    .sub-box {
-        grid-template-columns: 8.8rem 8.8rem;
     }
 }
 @media screen and (max-width: 1080px) {
@@ -805,16 +805,28 @@
 }
 @media screen and (max-width: 1303px) {
     .info-section {
-        grid-template-columns: 20rem 20rem 20rem;
+        grid-template-columns: 19.5rem 19.5rem 19.5rem;
+    }
+    .sub-box {
+        grid-template-columns: 9.8rem 9.8rem;
+    }
+}
+
+@media screen and (max-width: 1194px) {
+    .info-section {
+        grid-template-columns: 17.8rem 17.8rem 17.8rem;
+        gap: 30px;
+        margin-left: 0px;
     }
     .sub-box {
         grid-template-columns: 8.8rem 8.8rem;
     }
 }
-
 @media screen and (max-width: 1080px) {
     .info-section {
-        grid-template-columns: 17rem 17rem 17rem;
+        grid-template-columns: 17.8rem 17.8rem 17.8rem;
+        gap: 15px;
+        margin-left: 50px;
     }
     .sub-box {
         grid-template-columns: 8.8rem 8.8rem;
@@ -855,6 +867,7 @@
 @media screen and (max-width: 828px) {
     .info-section {
         grid-template-columns: 14rem 14rem 14rem;
+        gap: 30px;
     }
     .sub-box {
         grid-template-columns: 7rem 7rem;
@@ -863,6 +876,7 @@
 @media screen and (max-width: 812px) {
     .info-section {
         grid-template-columns: 14rem 14rem 14rem;
+        margin-left: 0;
     }
     .sub-box {
         grid-template-columns: 7rem 7rem;
@@ -1006,6 +1020,7 @@
         grid-template-columns: 18rem;
         column-gap: 1.6rem;
         row-gap: 2rem;
+        margin-left: 0;
     }
     .sub-box {
         grid-template-columns: 18rem;
@@ -1020,6 +1035,7 @@
 @media screen and (max-width: 320px) {
     .info-section {
         grid-template-columns: 16rem;
+        margin-left: 0;
         row-gap: 13px;
     }
     .box-1 {
@@ -1038,4 +1054,3 @@
         width: 1rem;
     }
 }
-
