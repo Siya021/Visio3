@@ -1,67 +1,115 @@
 $(document).ready(function () {
-    const interval = 3000; // Interval for automatic slideshow (in milliseconds)
+    var interval = setInterval(nextImage, 5000); 
 
-    // Function to start the slideshow
-    function startSlideshow() {
-        setInterval(function () {
-            var currentImg = $(".slidein img.active");
-            var nextImg = currentImg.next();
+    function nextImage() {
+        var activeImage = $('.carousal .inner .active');
+        var nextImage = activeImage.next('img');
 
-            if (nextImg.length === 0) {
-                nextImg = $(".slidein img:first");
-            }
+        if (nextImage.length === 0) {
+            nextImage = $('.carousal .inner img:first');
+        }
 
-            currentImg.removeClass("active").css("z-index", -10);
-            nextImg.addClass("active").css("z-index", 10);
-        }, interval);
+        activeImage.removeClass('active');
+        nextImage.addClass('active');
+
+        updatePoints();
     }
 
-    // Start the slideshow when the document is ready
-    startSlideshow();
+    function updatePoints() {
+        var activePoint = $('.carousal .points .activeSVG');
+        var nextPoint = activePoint.next('svg');
 
-    // Manual control for next slide
-    $(".next").on("click", function () {
-        var currentSVG = $(".radio-btn .activeSVG");
-        var nextSVG = currentSVG.next();
-
-        if (nextSVG.length === 0) {
-            nextSVG = $(".radio-btn img:first");
+        if (nextPoint.length === 0) {
+            nextPoint = $('.carousal .points svg:first');
         }
 
-        currentSVG.removeClass("activeSVG");
-        nextSVG.addClass("activeSVG");
+        activePoint.removeClass('activeSVG');
+        nextPoint.addClass('activeSVG');
+    }
 
-        var currentImg = $(".slidein img.active");
-        var nextImg = currentImg.next();
+    $('.carousal .next').click(function () {
+        clearInterval(interval);
+        nextImage();
+        interval = setInterval(nextImage, 5000); // Reset the interval
+    });
+});
 
-        if (nextImg.length === 0) {
-            nextImg = $(".slidein img:first");
-        }
+$(document).ready(function () {
+    var interval = setInterval(nextImage, 5000);
 
-        currentImg.removeClass("active").css("z-index", -10);
-        nextImg.addClass("active").css("z-index", 10);
+    $('.carousal .inner img').on('load', function () {
+        updateBannerText($(this).data('index'));
     });
 
-    // Manual control for previous slide
-    $(".prev").on("click", function () {
-        var currentSVG = $(".radio-btn .activeSVG");
-        var prevSVG = currentSVG.prev();
+    function nextImage() {
+        var activeImage = $('.carousal .inner .active');
+        var nextImage = activeImage.next('img');
 
-        if (prevSVG.length === 0) {
-            prevSVG = $(".radio-btn img:last");
+        if (nextImage.length === 0) {
+            nextImage = $('.carousal .inner img:first');
         }
 
-        currentSVG.removeClass("activeSVG");
-        prevSVG.addClass("activeSVG");
+        activeImage.removeClass('active');
+        nextImage.addClass('active');
 
-        var currentImg = $(".slidein img.active");
-        var prevImg = currentImg.prev();
+        updatePoints();
+        updateBannerText(nextImage.data('index'));
+    }
 
-        if (prevImg.length === 0) {
-            prevImg = $(".slidein img:last");
+    function updatePoints() {
+        var activePoint = $('.carousal .points .activeSVG');
+        var nextPoint = activePoint.next('svg');
+
+        if (nextPoint.length === 0) {
+            nextPoint = $('.carousal .points svg:first');
         }
 
-        currentImg.removeClass("active").css("z-index", -10);
-        prevImg.addClass("active").css("z-index", 10);
+        activePoint.removeClass('activeSVG');
+        nextPoint.addClass('activeSVG');
+
+                // Add a class to trigger the transition effect for the active point
+                nextPoint.addClass('activePointAnimation');
+
+                // Remove the class after the transition ends to reset for the next update
+                nextPoint.on('transitionend', function () {
+                    nextPoint.removeClass('activePointAnimation');
+                });
+    }
+
+    $('.carousal .next').click(function () {
+        clearInterval(interval);
+        nextImage();
+        interval = setInterval(nextImage, 5000); // Reset the interval
     });
+
+    function updateBannerText(index) {
+        var bannerSection = document.getElementById('bannerSection');
+        var text;
+
+        switch (index) {
+            case 0:
+                text = 'LOOK BEYOND THE ORDINARY';
+                break;
+            case 1:
+                text = 'WE CAN AND WE WILL';
+                break;
+            case 2:
+                text = 'WE LEAVE NO STONE UNTURNED';
+                break;
+        }
+
+        var h1Element = bannerSection.querySelector('h1');
+
+        // Add a class to trigger the transition effect
+        h1Element.classList.add('slide-from-left');
+    
+        // Set the text content after a short delay to allow the transition to take effect
+        setTimeout(function () {
+            h1Element.textContent = text;
+            // Remove the class after the transition ends to reset for the next update
+            h1Element.addEventListener('transitionend', function () {
+                h1Element.classList.remove('slide-from-left');
+            }, { once: true });
+        }, 100);
+    }
 });
